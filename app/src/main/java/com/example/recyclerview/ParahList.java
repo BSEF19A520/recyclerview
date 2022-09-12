@@ -58,5 +58,20 @@ public class ParahList extends AppCompatActivity {
                 return view;
             }
         };
+        listview = findViewById(R.id.ParaList);
+        listview.setAdapter(arrayAdapter);
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+
+                Intent intent = new Intent(ParahList.this, ParaContent.class);
+                String s = String.valueOf(adapterView.getItemIdAtPosition(position));
+
+                intent.putExtra("Parah_number", s);
+//                intent.putExtra("seturdutrans", urduTrans);
+//                intent.putExtra("setengtrans", engTrans);
+                startActivity(intent);
+                Toast.makeText(ParahList.this, "I clicked: ", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
