@@ -73,5 +73,24 @@ public class ParahList extends AppCompatActivity {
                 Toast.makeText(ParahList.this, "I clicked: ", Toast.LENGTH_SHORT).show();
             }
         });
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem)
+            {
+                switch (menuItem.getItemId())
+                {
+                    case R.id.SearchSP:
+                        Intent intent = new Intent(ParahList.this, Search.class);
+                        startActivity(intent);
+                        //drawerLayout.closeDrawer(GravityCompat.START);
+                        break;
+
+
+                }
+
+                return true;
+            }
+        });
     }
 }
