@@ -27,13 +27,14 @@ public class ParahList extends AppCompatActivity {
     ListView listview;
     public DrawerLayout drawerLayout;
     public ActionBarDrawerToggle actionBarDrawerToggle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parah_list);
         drawerLayout = findViewById(R.id.my_drawer_layout1);
-        navigationView=findViewById(R.id.navviewpara);
-
+        navigationView = findViewById(R.id.navviewpara);
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
 
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
@@ -41,3 +42,21 @@ public class ParahList extends AppCompatActivity {
         for (int i = 1; i <= 30; i++) {
             paranames.add("Para" + i);
         }
+        Intent intent = getIntent();
+        String urduTrans = intent.getStringExtra("urdutrans");
+        String engTrans = intent.getStringExtra("engtrans");
+//        Toast.makeText(this, urduTrans+engTrans, Toast.LENGTH_SHORT).show();
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, paranames) {
+            public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+                View view = super.getView(position, convertView, parent);
+                if (position % 2 == 1) {
+                    view.setBackgroundColor(getResources().getColor(android.R.color.system_accent1_400));
+                    view.setBackgroundColor(Color.rgb(248, 252, 240));
+                } else {
+                    view.setBackgroundColor(Color.rgb(251, 252, 245));
+                }
+                return view;
+            }
+        };
+    }
+}
