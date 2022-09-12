@@ -20,7 +20,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity {
     private Button Viewpara;
     private Button Viewsurah;
 
@@ -28,25 +28,24 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Viewpara = (Button)findViewById(R.id.showpara);
-        Viewsurah = (Button)findViewById(R.id.showsurah);
+        Viewpara = (Button) findViewById(R.id.showpara);
+        Viewsurah = (Button) findViewById(R.id.showsurah);
 
         Viewsurah.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
-                Intent intent=new Intent(MainActivity.this, SurahList.class);
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, SurahList.class);
                 startActivity(intent);
             }
         });
 
         Viewpara.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
-                Intent intent=new Intent(MainActivity.this, ParahList.class);
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ParahList.class);
                 startActivity(intent);
             }
         });
     }
+}
 

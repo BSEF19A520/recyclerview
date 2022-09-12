@@ -200,11 +200,7 @@ public class SurahList extends AppCompatActivity {
                         //drawerLayout.closeDrawer(GravityCompat.START);
                         break;
 
-                    case R.id.settings:
-                        Intent intent1 = new Intent(SurahList.this, Settings.class);
-                        startActivity(intent1);
-                        //drawerLayout.closeDrawer(GravityCompat.START);
-                        break;
+
                 }
 
                 return true;
