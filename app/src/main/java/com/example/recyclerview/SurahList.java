@@ -149,7 +149,7 @@ public class SurahList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_surah_list2);
         drawerLayout = findViewById(R.id.my_drawer_layout);
-        navigationView=findViewById(R.id.navview);
+        navigationView = findViewById(R.id.navview);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
 
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
@@ -177,8 +177,8 @@ public class SurahList extends AppCompatActivity {
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
 
-                Intent intent=new Intent(SurahList.this, SurahContent.class);
-                String s= String.valueOf(adapterView.getItemIdAtPosition(position));
+                Intent intent = new Intent(SurahList.this, SurahContent.class);
+                String s = String.valueOf(adapterView.getItemIdAtPosition(position));
 
                 intent.putExtra("Surah_number", s);
                 startActivity(intent);
@@ -189,28 +189,27 @@ public class SurahList extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
 
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem)
-            {
-                switch (menuItem.getItemId())
-                {
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
                     case R.id.SearchSP:
 //                        Toast.makeText(getApplicationContext(),"Retur is Clicked",Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(SurahList.this, Search.class);
                         startActivity(intent);
                         //drawerLayout.closeDrawer(GravityCompat.START);
                         break;
+
                     case R.id.settings:
                         Intent intent1 = new Intent(SurahList.this, Settings.class);
                         startActivity(intent1);
                         //drawerLayout.closeDrawer(GravityCompat.START);
                         break;
-
                 }
 
                 return true;
             }
         });
     }
+
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
@@ -218,5 +217,5 @@ public class SurahList extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
+}
 
